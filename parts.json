@@ -1,0 +1,16 @@
+{
+  "parts": [
+    { "id": 1, "name": "CPU", "brand": "Generic", "category": "Processor", "cost": 189.99 },
+    { "id": 2, "name": "Motherboard", "brand": "Generic", "category": "Board", "cost": 124.99 },
+    { "id": 3, "name": "RAM 8GB", "brand": "Generic", "category": "Memory", "cost": 34.99 },
+    { "id": 4, "name": "RAM 16GB", "brand": "Generic", "category": "Memory", "cost": 59.99 },
+    { "id": 5, "name": "SSD 256GB", "brand": "Generic", "category": "Storage", "cost": 44.99 },
+    { "id": 6, "name": "SSD 512GB", "brand": "Generic", "category": "Storage", "cost": 74.99 },
+    { "id": 7, "name": "HDD 1TB", "brand": "Generic", "category": "Storage", "cost": 49.99 },
+    { "id": 8, "name": "GPU", "brand": "Generic", "category": "Graphics", "cost": 299.99 },
+    { "id": 9, "name": "Power Supply 500W", "brand": "Generic", "category": "Power", "cost": 64.99 },
+    { "id": 10, "name": "CPU Cooling Fan", "brand": "Generic", "category": "Cooling", "cost": 29.99 },
+    { "id": 11, "name": "Case", "brand": "Generic", "category": "Housing", "cost": 79.99 },
+    { "id": 12, "name": "Optical Drive", "brand": "Generic", "category": "Storage", "cost": 24.99 }
+  ]
+}
