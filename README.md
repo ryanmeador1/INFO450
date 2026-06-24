@@ -1,2 +1,2 @@
 # INFO450
-This is from my summer of fun!
+This is my introduction to data analytics course in python. 
