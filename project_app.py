@@ -21,8 +21,5 @@ result = project_df_year['EARNWEEK2'].median()
 
 st.write(f'Median Weekly Pay: ${result:.2f} for year {selected_year}')
 
-selected_stat = st.selectbox('Would you like mean or median?',['Mean
+selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
-fig = px.bar(mean_pay_educ,x='EDUC_GROUP',y='EARNWEEK2',title='Mean Weekly Pay')
-
-st.plotly_chart(fig)
