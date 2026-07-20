@@ -23,3 +23,11 @@ st.write(f'Median Weekly Pay: ${result:.2f} for year {selected_year}')
 
 selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
+if selected_stat == 'Mean':
+  result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].mean().sort_values(ascending=False)
+
+if selected_stat == 'Median':
+  result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].median().sort_values(ascending=False)
+
+fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay')
+st.plotly_chart(fig)
