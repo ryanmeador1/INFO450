@@ -10,4 +10,4 @@ project_df['SEX_LABEL'] = 'Male'
 project_df.loc[project_df['SEX']==2,'SEX_LABEL'] = 'Female'
 
 st.sidebar.header('Filter')
-filter_var = st.sidebar('Select filter',['EARNWEEK2','UHRSWORKT'])
+filter_var = st.sidebar.selectbox('Select filter',['EARNWEEK2','UHRSWORKT'])
