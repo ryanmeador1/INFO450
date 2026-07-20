@@ -3,6 +3,10 @@ import pandas as pd
 import plotly.express as px
 
 project_df = pd.read_csv('cps_project_data.csv')
+
+mean_pay_educ = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].mean().sort_values(ascending=False)
+mean_pay_educ = mean_pay_educ.reset_index()
+
 project_df['EDUC_GROUP'] = 'No Diploma'
 project_df.loc[project_df['EDUC'] == 73, 'EDUC_GROUP'] = 'High School'
 project_df.loc[project_df['EDUC'] == 81, 'EDUC_GROUP'] = 'Some College'
