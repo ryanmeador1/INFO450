@@ -17,6 +17,9 @@ project_df.loc[project_df['EDUC'] == 111, 'EDUC_GROUP'] = 'Bachelors Degree'
 project_df.loc[project_df['EDUC'] >= 123, 'EDUC_GROUP'] = 'Graduate Degree'
 mean_pay_educ = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].mean().sort_values(ascending=False).reset_index()
 
-fig = px.bar(mean_pay_educ,x='EDUC_GROUP',y='EARNWEEK2',title='Mean Weekly Pay')
+fig = px.bar(mean_pay_educ,x='EDUC_GROUP',y='EARNWEEK2',title='Mean Weekly Pay', labels={
+  'EDUC_GROUP':'Education Level',
+  'EARNWEEK2': 'Median Weekly Pay'
+})
 
 st.plotly_chart(fig)
