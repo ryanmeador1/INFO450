@@ -6,8 +6,9 @@ project_df = pd.read_csv('cps_project_data.csv')
 
 st.title('INFO 450 Final Project - Ryan Meador')
 
-project_df['SEX_LABEL'] = 'Male'
-project_df.loc[project_df['SEX']==2,'SEX_LABEL'] = 'Female'
+selected_year = st.slider('Year',min_value=2020,max_value=2025,value=2020)
 
-st.sidebar.header('Filter')
-filter_var = st.sidebar.selectbox('Select filter',['EARNWEEK2','UHRSWORKT'])
+project_df_year = project_df.loc[project_df['YEAR']==selected_year]
+result = project_df_year['EARNWEEK2'].median()
+
+st.write(f'Median Weekly Pay: ${result:.2f}')
