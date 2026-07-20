@@ -25,6 +25,7 @@ selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
 if selected_stat == 'Mean':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].mean().sort_values(ascending=False)
+  result.reset_index()
 
 if selected_stat == 'Median':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].median().sort_values(ascending=False)
