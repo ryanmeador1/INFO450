@@ -60,5 +60,5 @@ if selected_stat == 'Median':
 fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Education Level')
 st.plotly_chart(fig)
 
-fig2 = px.bar(result_sex,x=['EDUC_GROUP','SEX_LABEL'],y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
+fig2 = px.bar(result_sex,x='EDUC_GROUP',y=['Female','Male'],title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
 st.plotly_chart(result_sex)
