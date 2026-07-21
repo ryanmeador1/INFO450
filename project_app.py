@@ -21,6 +21,8 @@ st.markdown('This dashboard is to help answer 3 questions.')
 st.markdown('1. How do weekly earnings differ by education level?')
 st.markdown('2. Have median weekly earnings changed from 2022 to 2025?')
 st.markdown('3. Is there a difference in weekly earnings between men and women? Does it persist within education levels?')
+st.markdown('****')
+st.markdown('Below is a slider that will tell you the median weekly earnings per year. Then there is a summary statistics table for the year the slider is on.')
 
 selected_year = st.slider('Year',min_value=2020,max_value=2025,value=2020)
 
