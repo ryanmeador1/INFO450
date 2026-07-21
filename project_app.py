@@ -35,6 +35,9 @@ project_df_desc = project_df[['AGE','UHRSWORKT','EARNWEEK2']].loc[project_df['YE
 project_df_desc = project_df_desc.reset_index()
 st.dataframe(project_df_desc)
 
+st.markdown('****')
+st.markdown('Below is a selectbox that allow you to pick between mean and median. Then the 2 graphs below will display the selected stat for their groups')
+
 selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
 if selected_stat == 'Mean':
