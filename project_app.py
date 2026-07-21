@@ -21,6 +21,10 @@ result = project_df_year['EARNWEEK2'].median()
 
 st.write(f'Median Weekly Pay: ${result:.2f} for year {selected_year}')
 
+project_df_desc = project_df[['AGE','UHRSWORKT','EARNWEEK2']].loc[project_df['YEAR']==selected_year].describe()
+project_df_desc = project_df_desc.reset_index()
+st.dataframe(project_df_desc)
+
 selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
 if selected_stat == 'Mean':
@@ -31,5 +35,5 @@ if selected_stat == 'Median':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].median().sort_values(ascending=False)
   result = result.reset_index()
 
-fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay')
+fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Education Level')
 st.plotly_chart(fig)
