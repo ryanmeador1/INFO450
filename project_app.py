@@ -40,7 +40,7 @@ project_df_desc = project_df_desc.reset_index()
 st.dataframe(project_df_desc)
 
 st.markdown('****')
-st.markdown('Below is a selectbox that allows you to pick between mean and median. Then the 2 graphs below will display the selected stat for their groups.')
+st.markdown('Below is a selectbox that allows you to pick between mean and median. Then the 2 graphs below will display the selected stat for their groups. Both charts are based off EARNWEEK2.')
 
 selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
