@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -17,7 +16,12 @@ project_df['SEX_LABEL'] = 'Male'
 project_df.loc[project_df['SEX']==2,'SEX_LABEL'] = 'Female'
 
 st.title('INFO 450 Final Project - Ryan Meador')
-st.markdown('This dashboard is to help answer 3 questions.')
+st.markdown('**Variable Guide**')
+st.markdown('* EDUC_GROUP: Education Group')
+st.markdown('* EARNWEEK2: Weekly Pay')
+st.markdown('* UHRSWORKT: Hours Worked')
+
+st.markdown('This dashboard will help answer 3 questions.')
 st.markdown('1. How do weekly earnings differ by education level?')
 st.markdown('2. Have median weekly earnings changed from 2022 to 2025?')
 st.markdown('3. Is there a difference in weekly earnings between men and women? Does it persist within education levels?')
@@ -36,7 +40,7 @@ project_df_desc = project_df_desc.reset_index()
 st.dataframe(project_df_desc)
 
 st.markdown('****')
-st.markdown('Below is a selectbox that allow you to pick between mean and median. Then the 2 graphs below will display the selected stat for their groups')
+st.markdown('Below is a selectbox that allows you to pick between mean and median. Then the 2 graphs below will display the selected stat for their groups.')
 
 selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 
@@ -57,4 +61,3 @@ st.plotly_chart(fig)
 
 fig2 = px.bar(result_sex,x='EDUC_GROUP',y=['Female','Male'],title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
 st.plotly_chart(fig2)
-
