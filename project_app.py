@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -21,7 +22,7 @@ st.markdown('* EDUC_GROUP: Education Group')
 st.markdown('* EARNWEEK2: Weekly Pay')
 st.markdown('* UHRSWORKT: Hours Worked')
 
-st.markdown('This dashboard will help answer 3 questions.')
+st.markdown('**This dashboard will help answer 3 questions.**')
 st.markdown('1. How do weekly earnings differ by education level?')
 st.markdown('2. Have median weekly earnings changed from 2022 to 2025?')
 st.markdown('3. Is there a difference in weekly earnings between men and women? Does it persist within education levels?')
@@ -59,5 +60,5 @@ if selected_stat == 'Median':
 fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Education Level')
 st.plotly_chart(fig)
 
-fig2 = px.bar(result_sex,x='EDUC_GROUP',y=['Female','Male'],title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
+fig2 = px.bar(result_sex,x=['EDUC_GROUP','SEX_LABEL'],y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
 st.plotly_chart(fig2)
