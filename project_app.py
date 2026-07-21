@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -11,6 +12,9 @@ project_df.loc[project_df['EDUC'] == 91, 'EDUC_GROUP'] = 'Associate Degree'
 project_df.loc[project_df['EDUC'] == 92, 'EDUC_GROUP'] = 'Associate Degree'
 project_df.loc[project_df['EDUC'] == 111, 'EDUC_GROUP'] = 'Bachelors Degree'
 project_df.loc[project_df['EDUC'] >= 123, 'EDUC_GROUP'] = 'Graduate Degree'
+
+project_df['SEX_LABEL'] = 'Male'
+project_df.loc[project_df['SEX']==2,'SEX_LABEL'] = 'Female'
 
 st.title('INFO 450 Final Project - Ryan Meador')
 
@@ -30,10 +34,18 @@ selected_stat = st.selectbox('Would you like mean or median?',['Mean','Median'])
 if selected_stat == 'Mean':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].mean().sort_values(ascending=False)
   result = result.reset_index()
+  result_sex = project_df.groupby(['EDUC_GROUP','SEX_LABEL'])['EARNWEEK2'].mean().unstack()
+  result_sex = result_sex.reset_index()
   
 if selected_stat == 'Median':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].median().sort_values(ascending=False)
   result = result.reset_index()
+  result_sex = project_df.groupby(['EDUC_GROUP','SEX_LABEL'])['EARNWEEK2'].median().unstack()
+  result_sex = result_sex.reset_index()
 
 fig = px.bar(result,x='EDUC_GROUP',y='EARNWEEK2',title=f'{selected_stat} Weekly Pay by Education Level')
 st.plotly_chart(fig)
+
+fig2 = px.bar(result_sex,x='EDUC_GROUP',y=['Female','Male'],title=f'{selected_stat} Weekly Pay by Gender and Education Level')
+st.plotly_chart(fig2)
+
