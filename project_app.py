@@ -17,6 +17,10 @@ project_df['SEX_LABEL'] = 'Male'
 project_df.loc[project_df['SEX']==2,'SEX_LABEL'] = 'Female'
 
 st.title('INFO 450 Final Project - Ryan Meador')
+st.markdown('This dashboard is to help answer 3 questions.')
+st.markdown('1. How do weekly earnings differ by education level?')
+st.markdown('2. Have median weekly earnings changed from 2022 to 2025?')
+st.markdown('3. Is there a difference in weekly earnings between men and women? Does it persist within education levels?')
 
 selected_year = st.slider('Year',min_value=2020,max_value=2025,value=2020)
 
