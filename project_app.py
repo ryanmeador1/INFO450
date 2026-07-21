@@ -62,4 +62,3 @@ st.plotly_chart(fig)
 
 fig2 = px.bar(result_sex,x='EDUC_GROUP',y=['Female','Male'],title=f'{selected_stat} Weekly Pay by Gender and Education Level',barmode='group')
 st.plotly_chart(fig2)
-st.write(result_sex)
