@@ -1,9 +1,13 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 
 project_df = pd.read_csv('cps_project_data.csv')
+
+import numpy as np
+project_df.loc[project_df['UHRSWORKT']==997,'UHRSWORKT'] = np.nan
+project_df.loc[project_df['UHRSWORKT']==999, 'UHRSWORKT'] = np.nan
+project_df.loc[project_df['UHRSWORKT']==0, 'UHRSWORKT'] = np.nan
 
 project_df['EDUC_GROUP'] = 'No Diploma'
 project_df.loc[project_df['EDUC'] == 73, 'EDUC_GROUP'] = 'High School'
@@ -50,7 +54,7 @@ if selected_stat == 'Mean':
   result = result.reset_index()
   result_sex = project_df.groupby(['EDUC_GROUP','SEX_LABEL'])['EARNWEEK2'].mean().unstack()
   result_sex = result_sex.reset_index()
-  
+
 if selected_stat == 'Median':
   result = project_df.groupby('EDUC_GROUP')['EARNWEEK2'].median().sort_values(ascending=False)
   result = result.reset_index()
